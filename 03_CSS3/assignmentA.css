@@ -1,0 +1,145 @@
+*{
+			padding:0;
+			margin: 0;
+			box-sizing: border-box; 
+}
+body{
+	background: #fad390;
+}
+
+header{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin: 20px auto;
+	color: #a05344;
+	font-size: 1.25em;	
+	font-family: 'Playfair Display', serif;
+	/*width: 550px;*/
+}
+.imageheader{	
+	border-radius: 30px;
+	margin: 10px;
+	transform: rotate(5deg);
+	box-shadow: 10px 10px 5px grey;
+	max-width: 500px;
+	/*max-width: 80%;*/
+}
+.container{
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	flex-direction: row;	
+}
+.gallery{
+	display: flex;
+	flex-direction: column;
+	/*max-width: 20%;*/
+	max-width: 350px;
+	/*align-items: center;*/
+	flex:1;
+}
+figure{
+	margin: 5px 10px;
+}
+.gallery img{
+	border-radius: 20px;
+	width: 100%;
+}
+figcaption{
+	color: white;
+	text-align: center;
+}
+p{
+	font-family: 'Lora', serif;
+}
+.paragraph-container{
+	flex:2;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	flex-direction: row;
+/*	max-width: 75%;*/
+
+}
+.paragraph{
+	max-width: 30%;
+	/*max-width: 300px;*/
+	/*height: 650px;*/
+	/*text-align: center;*/
+	margin:10px;
+	
+}
+.paragraph img{
+	border-radius: 20px;
+	float: left;
+    max-width: 60%;
+    margin: 5px;
+   /* height: auto;*/
+
+
+}
+
+blockquote{
+	float:right;
+	padding: 10px;
+	color: #4834d4;
+	border-radius: 10px;
+	font-size: 1.5em;
+}
+blockquote p{
+	font-family: 'Dancing Script', cursive;
+
+}
+
+footer { 
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #b2deec;
+   color: #a05344;
+   text-align: center;
+   height: 60px;
+   font-family: 'Dancing Script', cursive;
+   font-size: 1.5em;
+   padding: 20px;
+
+}
+@media (max-width: 1300px ) {
+     
+    .paragraph{
+	max-width: 45%;
+	}
+}
+
+@media (max-width: 1100px ) {
+    
+  	.paragraph img{
+		max-width: 40%;
+	}
+    .paragraph{
+	max-width: 95%;
+	}
+}
+	
+@media (max-width: 800px ) {
+    .container {
+     flex-direction: column;
+    }
+    .gallery{
+    	order: 2;
+    }
+    .paragraph{
+	max-width: 100%;
+	}
+	.paragraph img{
+		max-width: 40%;
+	}
+}
+ 
+
+
