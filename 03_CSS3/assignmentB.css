@@ -1,0 +1,143 @@
+*{
+			padding:0;
+			margin: 0;
+			box-sizing: border-box; 
+}
+body{
+	background: #fad390;
+}
+
+header{
+	display: grid;
+	grid-template-rows: auto auto;
+	/*grid-gap: 10px;*/
+	justify-content: center;	
+	text-align: center;
+	margin: 20px auto;
+	color: #a05344;
+	font-size: 1.25em;	
+	font-family: 'Playfair Display', serif;
+
+}
+.imageheader{	
+	border-radius: 30px;
+	margin: 10px;
+	transform: rotate(5deg);
+	box-shadow: 10px 10px 5px grey;
+	max-width: 500px;
+	/*max-width: 80%;*/
+}
+.container{
+	width: 100%;
+	display: grid;
+    grid-template-columns: 1fr 4fr;
+	margin: 0 auto;
+}
+.gallery{
+	display: grid;
+	grid-template-rows: repeat(3, 240px);
+	/*max-width: 350px;*/
+	/*align-items: center;*/
+	justify-content: start;	
+}
+figure{
+	margin: 5px 10px;
+}
+.gallery img{
+	border-radius: 20px;
+	width: 100%;
+	min-width: 250px;
+}
+figcaption{
+	color: white;
+	text-align: center;
+}
+p{
+	font-family: 'Lora', serif;
+}
+.paragraph-container{	
+	display: grid;	
+	justify-content: center;
+	/*grid-template: repeat(2,auto)/repeat(3,auto);*/
+	grid-template-columns: repeat(auto-fill, minmax(370px, auto));
+	margin: 0 auto;
+	grid-gap: 5px;
+	width: 95%;
+/*	max-width: 75%;*/
+
+}
+.paragraph{
+	max-width: 100%;
+	margin:10px;
+	
+}
+.paragraph img{
+	border-radius: 20px;
+	float: left;
+    max-width: 50%;
+    margin: 5px 12px 5px 5px;
+   /* height: auto;*/
+}
+
+blockquote{
+	float:right;
+	padding: 10px;
+	color: #4834d4;
+	border-radius: 10px;
+	font-size: 1.5em;
+}
+blockquote p{
+	font-family: 'Dancing Script', cursive;
+
+}
+
+footer { 
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #b2deec;
+   color: #a05344;
+   text-align: center;
+   height: 60px;
+   font-family: 'Dancing Script', cursive;
+   font-size: 1.5em;
+   padding: 20px;
+
+}
+/*@media (max-width: 1300px ) {
+     
+    .paragraph{
+	max-width: 45%;
+	}
+}
+
+@media (max-width: 1100px ) {
+    
+  	.paragraph img{
+		max-width: 40%;
+	}
+    .paragraph{
+	max-width: 95%;
+	}
+}
+*/	
+@media (max-width: 800px ) {
+    .container {
+     /*grid-template: 2fr 1fr/ 1fr;*/
+     grid-template-columns: auto;
+     justify-items: center;
+    }
+    .gallery{
+    	order: 2;
+    	width: 350px;
+    }
+    .paragraph{
+	max-width: 100%;
+	}
+	.paragraph img{
+		max-width: 40%;
+	}
+}
+ 
+
+
