@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 const cvs = document.getElementById('game')
 const ctx = cvs.getContext('2d')
@@ -6,9 +7,12 @@ const end = document.getElementById('endgame')
 const userscore = document.getElementById('score')
 const urlParams = new URLSearchParams(window.location.search)
 const username = urlParams.get('name')
+
+const xhttp = new XMLHttpRequest()
+
 const sound = document.createElement('audio')
-sound.src = './stadium.mp3'
-// const Highscores = require('./models/highscores.js')
+sound.load()
+// sound.src = './sounds/ball.mp3'
 
 const drawRect = (x, y, w, h, color) => {
   ctx.fillStyle = color
@@ -156,17 +160,15 @@ const endGame = () => {
     end.style.display = 'flex'
     ball.stop = true
     cvs.removeEventListener('mousemove', movePaddle)
-    // module.exports.score = user.score
     userscore.innerHTML = user.score
 
-    // const userinfo = new Highscores({
-    //   name: user.name,
-    //   score: user.score
-    // })
-    // userinfo.save().then((result) => console.log('saved'))
+    xhttp.open('POST', '/add', true)
+    xhttp.setRequestHeader('Content-type', 'application/json')
+    xhttp.send(JSON.stringify({ name: user.name, score: user.score }))
+    clearInterval(interval)
   }
 }
-sound.play()
+// sound.play()
 const game = () => {
   update()
   render()
@@ -174,4 +176,5 @@ const game = () => {
 }
 
 const fps = 50
-setInterval(game, 1000 / fps)
+
+const interval = setInterval(game, 1000 / fps)
