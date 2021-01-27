@@ -2,6 +2,14 @@
 const cvs = document.getElementById('game')
 const ctx = cvs.getContext('2d')
 
+const end = document.getElementById('endgame')
+const userscore = document.getElementById('score')
+const urlParams = new URLSearchParams(window.location.search)
+const username = urlParams.get('name')
+const sound = document.createElement('audio')
+sound.src = './stadium.mp3'
+// const Highscores = require('./models/highscores.js')
+
 const drawRect = (x, y, w, h, color) => {
   ctx.fillStyle = color
   ctx.fillRect(x, y, w, h)
@@ -28,8 +36,9 @@ const drawText = (text, x, y, color) => {
   ctx.font = '50px sans-serif'
   ctx.fillText(text, x, y)
 }
-
+console.log(username)
 const user = {
+  name: username,
   x: 20,
   y: cvs.height / 2 - 50,
   w: 10,
@@ -142,9 +151,26 @@ const render = () => {
   drawcirc1(ball.x, ball.y, ball.r, ball.color)
 }
 
+const endGame = () => {
+  if (com.score >= 5) {
+    end.style.display = 'flex'
+    ball.stop = true
+    cvs.removeEventListener('mousemove', movePaddle)
+    // module.exports.score = user.score
+    userscore.innerHTML = user.score
+
+    // const userinfo = new Highscores({
+    //   name: user.name,
+    //   score: user.score
+    // })
+    // userinfo.save().then((result) => console.log('saved'))
+  }
+}
+sound.play()
 const game = () => {
   update()
   render()
+  endGame()
 }
 
 const fps = 50
